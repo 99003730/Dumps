@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="DisplayPanel">
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl1" ControlName="LCD Control">
+      <Property Name="Name">LCDControl1</Property>
+      <Property Name="Size">126, 54</Property>
+      <Property Name="Location">400, 151</Property>
+      <Property Name="NumberIntDigits">3</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ColorOn">Silver</Property>
+      <Property Name="ColorOff">64, 0, 64</Property>
+      <Property Name="SegmentStrength">5</Property>
+      <Property Name="SymbolConfiguration">5;2;TransmissionDBC;;VehicleMotion;Velocity;1;CAN;;-1;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl1" ControlName="Picture Box">
+      <Property Name="Name">PictureBoxControl1</Property>
+      <Property Name="Size">260, 260</Property>
+      <Property Name="Location">340, 38</Property>
+      <Property Name="TransparentColor">Black</Property>
+      <Property Name="ImageFile">..\..\..\..\..\..\99003730\Desktop\CircleSpeedMclaren.png</Property>
+      <Property Name="IsProportional">False</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.MeterControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="MeterControl1" ControlName="Meter">
+      <Property Name="Name">MeterControl1</Property>
+      <Property Name="Size">357, 312</Property>
+      <Property Name="Location">290, 15</Property>
+      <Property Name="ScaleMax">220</Property>
+      <Property Name="SweepAngleFrom">-158</Property>
+      <Property Name="SweepAngleTo">115</Property>
+      <Property Name="NeedleColor">Green</Property>
+      <Property Name="PivotDistance">1</Property>
+      <Property Name="NeedleShape">ClockFilled</Property>
+      <Property Name="AlarmDisplay">True</Property>
+      <Property Name="AlarmLowerColor">FloralWhite</Property>
+      <Property Name="AlarmLowerLimit">60</Property>
+      <Property Name="AlarmUpperLimit">145</Property>
+      <Property Name="SymbolConfiguration">5;2;TransmissionDBC;;VehicleMotion;Velocity;1;CAN;;-1;;;</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">934, 318</Property>
+    <Property Name="BackColor">DarkGoldenrod</Property>
+    <Property Name="ImageFileName">..\..\..\..\..\..\99003730\Desktop\McLarenSpeedometer.jpg</Property>
+    <Property Name="IsProportional">True</Property>
+  </Object>
+</Panel>
