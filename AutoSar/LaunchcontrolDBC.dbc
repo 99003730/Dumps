@@ -1,0 +1,83 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+VAL_TABLE_ Speed ;
+
+
+BO_ 0 ThrottleMsg: 1 Vector__XXX
+ SG_ IntakeValve : 1|7@1+ (1,0) [0|90] "degree" Vector__XXX
+ SG_ ThrottlePosition : 0|1@1+ (1,0) [0|1] "Boolean" Vector__XXX
+
+BO_ 256 BrakeMsg: 1 Vector__XXX
+ SG_ Brake_Status : 0|1@1+ (1,0) [0|1] "Boolean" Vector__XXX
+
+BO_ 356 BoostPressure: 4 Vector__XXX
+ SG_ TurboFanSpeed : 16|12@1+ (1,0) [0|4000] "rpm" Vector__XXX
+ SG_ WasteGateValve : 8|7@1+ (1,0) [0|90] "degree" Vector__XXX
+ SG_ IntakeManifoldPressure : 0|4@1+ (1,0) [0|15] "psi" Vector__XXX
+
+BO_ 344 Gear: 1 Vector__XXX
+ SG_ GearPosition : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 357 LaunchControl: 1 Vector__XXX
+ SG_ LaunchStatus : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LauchSwitch : 1|1@1+ (1,0) [0|1] "Boolean" Vector__XXX
+ SG_ ActiveSwitch : 0|1@1+ (1,0) [0|1] "Boolean" Vector__XXX
+
+BO_ 345 RPMMsg: 5 Vector__XXX
+ SG_ FuelInjectorTiming : 24|10@1+ (1,0) [0|1000] "ms" Vector__XXX
+ SG_ RPM : 0|14@1+ (1,0) [0|8500] "rpm" Vector__XXX
+
+BO_ 352 SpeedMsg: 2 Vector__XXX
+ SG_ Speed : 0|9@1+ (1,0) [0|330] "km/h" Vector__XXX
+
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+

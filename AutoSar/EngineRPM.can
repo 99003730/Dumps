@@ -1,0 +1,80 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message RPMMsg rp;
+  message Gear gr;
+  message SpeedMsg sp;
+  message BrakeMsg br;
+  message LaunchControl lc;
+  msTimer timer_rp;
+  message ThrottleMsg tr;
+}
+on start
+{
+  rp.RPM=2000;
+  output(rp);
+  
+  setTimer(timer_rp,10);
+  
+}
+on timer timer_rp
+{ output(rp);
+  output(gr);
+  setTimer(timer_rp,10);
+}
+on message ThrottleMsg
+{if(rp.RPM>8500)
+{
+  rp.RPM=7000;
+}
+else if(rp.RPM<2000)
+{
+  rp.RPM=2000;
+}
+else  
+{if(tr.ThrottlePosition==0)
+  {
+    rp.RPM=2000;
+  }
+  else if (tr.ThrottlePosition==1)
+  {
+     if(lc.LaunchStatus==1)
+    {
+      rp.RPM=3200;
+    }
+      else if( tr.ThrottlePosition==1 && lc.LaunchStatus==0)
+      {
+        
+               rp.RPM=rp.RPM+25;
+                
+            }}}}
+            
+on message BrakeMsg
+{if(lc.LaunchStatus==0)
+{if(rp.RPM>8500)
+{
+  rp.RPM=7000;
+}
+else if(rp.RPM<2000)
+{
+  rp.RPM=2000;
+}
+else  
+{rp.RPM=rp.RPM-20;
+   if(rp.RPM<2000 && gr.GearPosition>=1)
+        {
+          gr.GearPosition=gr.GearPosition-1;
+          rp.RPM=6000;
+        }
+        
+}}}
+on sysvar Throttle::Accelerator
+{
+  tr.ThrottlePosition=@Throttle::Accelerator;
+  output(tr);
+}

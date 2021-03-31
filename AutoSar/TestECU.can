@@ -1,0 +1,39 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message LaunchControl lc;
+  message RPMMsg rp;
+  message BoostPressure bp;
+  message BrakeMsg br;
+  message SpeedMsg sp;
+  message ThrottleMsg tr;
+  message Gear gr;
+ 
+  
+} 
+
+/*on key 'a'
+{
+  lc.ActiveSwitch=1;
+  lc.LauchSwitch=1;
+  br.Brake_Status=1;
+
+}
+on key 't'
+{
+  tr.ThrottlePosition=1;
+  output(tr);
+}
+/*on key 'b'
+{
+  br.Brake_Status=1;
+  output(br);
+}*/
+
+  
+
