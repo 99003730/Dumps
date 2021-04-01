@@ -1,0 +1,263 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message LaunchControl lc;
+  message BrakeMsg br;
+  message SpeedMsg sp;
+  message ThrottleMsg tr;
+  message BoostPressure bp;
+  msTimer timer_sp;
+  message RPMMsg rp;
+  message Gear gr;
+  msTimer timer_turbo;
+  int var =10;
+  int gear =1;
+  
+ 
+   msTimer timer_rp;
+  
+}
+on start
+{ gr.GearPosition=1;
+  output(gr);
+  sp.Speed=0;
+  tr.ThrottlePosition=0;
+  
+  br.Brake_Status=0;
+  bp.IntakeManifoldPressure=0;
+  bp.WasteGateValve=90;
+  output(bp);
+  setTimer(timer_turbo,100);
+  output(sp);
+  output(lc);
+  rp.RPM=2000;
+  output(rp);
+ 
+   setTimer(timer_rp,100);
+ 
+  setTimer(timer_turbo,100);
+  
+  
+  
+ 
+
+  setTimer(timer_sp,100);
+  
+}
+
+on timer timer_sp
+{  
+  setTimer(timer_sp,100);
+  output(sp);
+  output(lc);
+  
+   
+  
+}
+
+on message LaunchControl
+{write("Entering");
+  setTimer(timer_sp,100);
+  output(sp);
+  if(br.Brake_Status==1)
+{
+ if((lc.ActiveSwitch==1)&&(lc.LauchSwitch==1))
+  { write("Launch Sequence Active");
+    lc.LaunchStatus=1;
+    output(lc);
+  
+  
+  
+  if(tr.ThrottlePosition==0)
+  {
+    write("Awaiting Full Throttle");
+  }
+  else if(tr.ThrottlePosition==1 && bp.IntakeManifoldPressure<12)
+  {
+   write("Boost Building");
+  }
+  else if(tr.ThrottlePosition==1 && bp.IntakeManifoldPressure>=12)
+  {
+   write("Boost Ready");
+    }}
+  else
+  {
+    lc.LaunchStatus=0;
+  }
+  
+
+
+}
+else
+lc.LaunchStatus=0;}
+
+on message BoostPressure
+{
+  if (bp.IntakeManifoldPressure<5)
+  {
+    tr.IntakeValve=10;
+    
+  }
+  else if(bp.IntakeManifoldPressure<=11)
+  {
+    tr.IntakeValve=45;
+  }
+  else if(bp.IntakeManifoldPressure>11)
+  {
+    tr.IntakeValve=90;
+  }
+output(tr);
+  
+}
+on message ThrottleMsg
+    { if(sp.Speed<=327)
+          {if (tr.ThrottlePosition==1 && br.Brake_Status!=1)
+              sp.Speed=sp.Speed+3;
+          }
+       if(rp.RPM>8500)
+          {
+            rp.RPM=8000;
+          }
+        else if(rp.RPM<2000)
+          {
+            rp.RPM=2500;
+          }
+        else  
+            { if(tr.ThrottlePosition==0)
+              {
+                rp.RPM=2000;
+              }
+              else if (tr.ThrottlePosition==1 && lc.LaunchStatus==1)
+               
+                    rp.RPM=3200;
+                
+               else if( tr.ThrottlePosition==1 && lc.LaunchStatus==0)
+                  {        
+                        rp.RPM=(rp.RPM+800-gear*100);  
+                        if(rp.RPM>=7500 && gear<7)
+                        {
+                          rp.RPM=3000;
+                          gear=gear+1;
+                          gr.GearPosition=gear;
+                          output(gr);
+                        }
+                          
+                            
+                    }}}
+on message SpeedMsg
+{
+  if(br.Brake_Status==1)
+    { if(sp.Speed<=8)
+      sp.Speed=0;
+
+      else{
+     
+        sp.Speed=sp.Speed-8;
+      
+            if(lc.LaunchStatus==0)
+                {if(rp.RPM>8500)
+                   rp.RPM=8000;
+
+                  else if(rp.RPM<2200)
+                         rp.RPM=3000;
+
+                   else  
+                      {rp.RPM=rp.RPM-900;
+                         if(rp.RPM<=3200 && gear>1)
+                              { 
+                                
+                                gear=(gear-1);
+                                 
+                                rp.RPM=6000;
+                                gr.GearPosition=gear;
+                                output(gr);
+                              }
+                      }
+                    }
+                }
+            }
+}
+
+
+
+on sysvar BrakeSystem::Brake
+{
+  br.Brake_Status=@BrakeSystem::Brake;
+  output(br);
+}
+
+on sysvar Mode::Active
+{
+  lc.ActiveSwitch=@Mode::Active;
+  output(lc);
+}
+on sysvar Mode::Launch
+{
+  lc.LauchSwitch=@Mode::Launch;
+  output(lc);
+}
+
+
+
+on sysvar Throttle::Accelerator
+{
+  tr.ThrottlePosition=@Throttle::Accelerator;
+  output(tr);
+}
+on timer timer_rp
+{ output(rp);
+  
+  setTimer(timer_rp,100);
+}
+
+on timer timer_turbo
+{
+  output(bp);
+  setTimer(timer_turbo,100);
+}
+on message RPMMsg
+{if(bp.TurboFanSpeed>3800)
+  {bp.TurboFanSpeed=3800;}
+  if (bp.IntakeManifoldPressure>13)
+    {bp.IntakeManifoldPressure=12;
+      bp.WasteGateValve=90;} 
+ if(lc.LaunchStatus==1 && bp.TurboFanSpeed<=3800 && bp.IntakeManifoldPressure<13)
+  {
+    bp.WasteGateValve=0;
+    bp.TurboFanSpeed=rp.RPM/2;
+    var=var+50;
+    if(bp.IntakeManifoldPressure<12)
+      bp.IntakeManifoldPressure=((bp.IntakeManifoldPressure+var)*tr.ThrottlePosition) /100;
+  else
+  bp.IntakeManifoldPressure=13;}
+    
+  
+ else if (lc.LaunchStatus==0 && bp.TurboFanSpeed<=3800 && bp.IntakeManifoldPressure<13)
+  {
+    if(rp.RPM>2800)
+    {bp.WasteGateValve=0;
+      bp.TurboFanSpeed=rp.RPM/2;
+      
+      bp.IntakeManifoldPressure=bp.TurboFanSpeed/298;
+       
+  }
+    else
+    {
+      bp.TurboFanSpeed=0;
+      bp.IntakeManifoldPressure=0;
+    }
+    }
+  
+  
+  else
+{
+  bp.WasteGateValve=90;
+  bp.IntakeManifoldPressure=bp.IntakeManifoldPressure-1;
+  bp.TurboFanSpeed=bp.TurboFanSpeed-10;
+}
+}

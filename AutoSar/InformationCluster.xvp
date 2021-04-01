@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="InformationCluster">
+    <Object Type="Vector.CANalyzer.Panels.Design.ClockControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="ClockControl1" ControlName="Clock Control">
+      <Property Name="Name">ClockControl1</Property>
+      <Property Name="Size">52, 28</Property>
+      <Property Name="Location">803, 280</Property>
+      <Property Name="DisplaySeconds">False</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ColorOn">Silver</Property>
+      <Property Name="ColorOff">64, 0, 64</Property>
+      <Property Name="SegmentStrength">1</Property>
+      <Property Name="SymbolConfiguration">
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl3" Children="Controls" ControlName="Static Text 3">
+      <Property Name="Name">StaticTextControl3</Property>
+      <Property Name="Size">129, 39</Property>
+      <Property Name="Location">638, 269</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12pt, style=Bold</Property>
+      <Property Name="Text">Launch Status</Property>
+      <Property Name="ForeColor">Silver</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl1" ControlName="LED Control">
+      <Property Name="Name">LEDControl1</Property>
+      <Property Name="Size">24, 24</Property>
+      <Property Name="Location">773, 266</Property>
+      <Property Name="UsedLEDColorOn">192, 192, 0</Property>
+      <Property Name="UsedLEDColorOff">64, 0, 64</Property>
+      <Property Name="SymbolConfiguration">5;2;LaunchcontrolDBC;;LaunchControl;LaunchStatus;1;CAN;;-1;;;</Property>
+      <Property Name="TabIndex">7</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl2" Children="Controls" ControlName="Static Text 2">
+      <Property Name="Name">StaticTextControl2</Property>
+      <Property Name="Size">157, 27</Property>
+      <Property Name="Location">89, 263</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12pt, style=Bold</Property>
+      <Property Name="Text">Boost</Property>
+      <Property Name="ForeColor">Silver</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarControl1" Children="Controls" ControlName="Progress Bar">
+      <Property Name="Name">ProgressBarControl1</Property>
+      <Property Name="Size">157, 16</Property>
+      <Property Name="Location">89, 289</Property>
+      <Property Name="OriginValue">0</Property>
+      <Property Name="Maximum">12</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="AlarmUpperLimit">12</Property>
+      <Property Name="ValueSize">38, 28</Property>
+      <Property Name="SymbolConfiguration">5;2;LaunchcontrolDBC;;BoostPressure;IntakeManifoldPressure;1;CAN;;-1;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">StaticTextControl1</Property>
+      <Property Name="Size">64, 25</Property>
+      <Property Name="Location">424, 202</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="Font">Microsoft Sans Serif, 15pt, style=Bold</Property>
+      <Property Name="Text">kmph</Property>
+      <Property Name="ForeColor">Silver</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl2" ControlName="LCD Control 2">
+      <Property Name="Name">LCDControl2</Property>
+      <Property Name="Size">79, 41</Property>
+      <Property Name="Location">498, 220</Property>
+      <Property Name="NumberIntDigits">1</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ColorOn">255, 128, 0</Property>
+      <Property Name="ColorOff">64, 0, 64</Property>
+      <Property Name="SegmentStrength">5</Property>
+      <Property Name="SymbolConfiguration">5;2;LaunchcontrolDBC;;Gear;GearPosition;1;CAN;;-1;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl1" ControlName="LCD Control">
+      <Property Name="Name">LCDControl1</Property>
+      <Property Name="Size">124, 49</Property>
+      <Property Name="Location">385, 147</Property>
+      <Property Name="NumberIntDigits">3</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ColorOn">Silver</Property>
+      <Property Name="ColorOff">64, 0, 64</Property>
+      <Property Name="SegmentStrength">4</Property>
+      <Property Name="SymbolConfiguration">5;2;LaunchcontrolDBC;;SpeedMsg;Speed;1;CAN;;-1;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl1" ControlName="Picture Box">
+      <Property Name="Name">PictureBoxControl1</Property>
+      <Property Name="Size">247, 248</Property>
+      <Property Name="Location">330, 42</Property>
+      <Property Name="ImageFile">CircleSpeedMclaren.png</Property>
+      <Property Name="IsProportional">False</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.MeterControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="MeterControl1" ControlName="Meter">
+      <Property Name="Name">MeterControl1</Property>
+      <Property Name="Size">365, 291</Property>
+      <Property Name="Location">267, 17</Property>
+      <Property Name="ScaleMax">8500</Property>
+      <Property Name="SweepAngleFrom">-156</Property>
+      <Property Name="SweepAngleTo">90</Property>
+      <Property Name="NeedleShape">ClockFilled</Property>
+      <Property Name="AlarmDisplay">True</Property>
+      <Property Name="AlarmLowerColor">Silver</Property>
+      <Property Name="AlarmLowerLimit">3500</Property>
+      <Property Name="AlarmUpperLimit">6000</Property>
+      <Property Name="SymbolConfiguration">5;2;LaunchcontrolDBC;;RPMMsg;RPM;1;CAN;;-1;;;</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">903, 308</Property>
+    <Property Name="BackColor">White</Property>
+    <Property Name="ImageFileName">McLarenSpeedometer.jpg</Property>
+    <Property Name="IsProportional">True</Property>
+  </Object>
+</Panel>

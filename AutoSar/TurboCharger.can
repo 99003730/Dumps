@@ -1,0 +1,51 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message LaunchControl lc;
+  message RPMMsg rp;
+  message BoostPressure bp;
+  msTimer timer_turbo;
+  int var =10;
+}
+on start
+{ bp.IntakeManifoldPressure=0;
+  bp.WasteGateValve=90;
+  
+  setTimer(timer_turbo,100);
+}
+on timer timer_turbo
+{
+  
+  setTimer(timer_turbo,100);
+}
+on message RPMMsg
+{
+  if(lc.LaunchStatus==1 && bp.TurboFanSpeed<3800 && bp.IntakeManifoldPressure<14)
+  {
+    bp.WasteGateValve=0;
+    bp.TurboFanSpeed=rp.RPM/2;
+    var=var+10;
+    bp.IntakeManifoldPressure=(bp.IntakeManifoldPressure+var)/100;
+  }
+ else if (lc.LaunchStatus==0 && bp.TurboFanSpeed<3800 && bp.IntakeManifoldPressure<14)
+  {
+    if(rp.RPM>2800)
+    {
+      bp.TurboFanSpeed=rp.RPM/2;
+      bp.IntakeManifoldPressure=bp.TurboFanSpeed/271;
+  }
+    }
+  
+  
+  else
+{
+  bp.WasteGateValve=90;
+  var=var+10;
+  bp.IntakeManifoldPressure=(bp.IntakeManifoldPressure-var)/100;
+}
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="ControlPanel">
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl2" Children="Controls" ControlName="Check Box">
+      <Property Name="Name">CheckBoxControl2</Property>
+      <Property Name="Size">172, 24</Property>
+      <Property Name="Location">369, 16</Property>
+      <Property Name="Text">Active Drive Mode</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ForeColor">Silver</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12pt, style=Bold</Property>
+      <Property Name="SymbolConfiguration">5;16;Mode;;;Active;1;;;-1;;;</Property>
+      <Property Name="TabIndex">4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl1" Children="Controls" ControlName="Check Box">
+      <Property Name="Name">CheckBoxControl1</Property>
+      <Property Name="Size">172, 29</Property>
+      <Property Name="Location">369, 46</Property>
+      <Property Name="Text">Launch Mode</Property>
+      <Property Name="BackColor">64, 0, 64</Property>
+      <Property Name="ForeColor">Red</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12pt, style=Bold</Property>
+      <Property Name="SymbolConfiguration">5;16;Mode;;;Launch;1;;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl2" Children="Controls" ControlName="Accelerator">
+      <Property Name="Name">TrackBarControl2</Property>
+      <Property Name="Size">106, 61</Property>
+      <Property Name="Location">226, 114</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="BackColor">Brown</Property>
+      <Property Name="LargeChange">1</Property>
+      <Property Name="LargeChangeDouble">1</Property>
+      <Property Name="MaximumDouble">1</Property>
+      <Property Name="SymbolConfiguration">5;16;Throttle;;;Accelerator;1;;;-1;;;</Property>
+      <Property Name="TabIndex">2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl1" Children="Controls" ControlName="Brakes">
+      <Property Name="Name">TrackBarControl1</Property>
+      <Property Name="Size">109, 56</Property>
+      <Property Name="Location">58, 119</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="BackColor">DimGray</Property>
+      <Property Name="LargeChange">1</Property>
+      <Property Name="LargeChangeDouble">1</Property>
+      <Property Name="MaximumDouble">1</Property>
+      <Property Name="SymbolConfiguration">5;16;BrakeSystem;;;Brake;1;;;-1;;;</Property>
+      <Property Name="TabIndex">1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=10.0.127.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl1" ControlName="Picture Box">
+      <Property Name="Name">PictureBoxControl1</Property>
+      <Property Name="Size">346, 181</Property>
+      <Property Name="Location">0, 0</Property>
+      <Property Name="ImageFile">Acc_br.png</Property>
+      <Property Name="IsProportional">False</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">554, 264</Property>
+    <Property Name="BackColor">White</Property>
+    <Property Name="ImageFileName">McLarenLogo.png</Property>
+  </Object>
+</Panel>
